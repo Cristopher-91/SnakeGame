@@ -1,10 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b5cc1822-e7ec-46f9-8291-203d1e53e2f7" name="Default" comment="Snake Configuration added">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+    <list default="true" id="b5cc1822-e7ec-46f9-8291-203d1e53e2f7" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/GamePlay.java" afterPath="$PROJECT_DIR$/src/com/company/GamePlay.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -203,12 +201,20 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521636295560</updated>
-      <workItem from="1521647306929" duration="1828000" />
+      <workItem from="1521647306929" duration="1878000" />
     </task>
+    <task id="LOCAL-00001" summary="Snake Configuration added">
+      <created>1521649260930</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521649260930</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1828000" />
+    <option name="totallyTimeSpent" value="1878000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="732" y="56" width="835" height="876" extended-state="0" />
