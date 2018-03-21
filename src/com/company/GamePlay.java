@@ -5,8 +5,28 @@ import java.awt.*;
 
 public class GamePlay extends JPanel {
 
-    private ImageIcon titleImage;
+    //Snake Configuration
+    private int[] snakeXlength = new int[750];
+    private int[] snakeYlength = new int[750];
 
+    private boolean left = false;
+    private boolean rigth = false;
+    private boolean up = false;
+    private boolean down = false;
+
+    private ImageIcon rigthmouth;
+    private ImageIcon lefthmouth;
+    private ImageIcon upmouth;
+    private ImageIcon downhmouth;
+
+    private ImageIcon snakeImage;
+
+    private Timer timer;
+    private int delay = 100;
+
+    //Gameplay panel configuration
+
+    private ImageIcon titleImage;
     public GamePlay() {
     }
 
