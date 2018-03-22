@@ -42,7 +42,9 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
 
     //Gameplay panel configuration
 
+    private Enemy enemy = new Enemy();
     private ImageIcon titleImage;
+    private int Score = 0;
 
     public GamePlay() {
 
@@ -71,6 +73,10 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
         graphics.setColor(Color.BLACK);
         graphics.fillRect(25,75,850,575);
 
+        //draw score table
+        graphics.setColor(Color.white);
+        graphics.setFont(new Font("arial", Font.PLAIN, 15));
+        graphics.drawString("Scores: " + Score, 780,30) ;
         //draw snake
         //initial position
         if(moving == 0){
@@ -113,6 +119,13 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
             }
 
         }
+        //checking if snake head is colliding with enemy
+        if(enemy.getxPos() == snakeXlength[0] && enemy.getyPos() == snakeYlength[0]){
+            Score++;
+            lengthOfSnake++;
+            enemy.shufflePositions();
+        }
+        enemy.getEnemyImage().paintIcon(this, graphics, enemy.getxPos(), enemy.getyPos());
         graphics.dispose();
     }
     //Mechanics of the game
@@ -211,7 +224,6 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
                 down = false;
                 break;
             case KeyEvent.VK_LEFT:
-                System.out.println("left");
                 moving++;
                 left = true;
                 if(!right){
