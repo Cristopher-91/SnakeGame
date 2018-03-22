@@ -126,6 +126,24 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
             enemy.shufflePositions();
         }
         enemy.getEnemyImage().paintIcon(this, graphics, enemy.getxPos(), enemy.getyPos());
+
+        //checking if snake is in collidinig with itself
+        for(int j=1;j<lengthOfSnake;j++){
+            if(snakeXlength[j] == snakeXlength[0] && snakeYlength[j] == snakeYlength[0]){
+                right = false;
+                left = false;
+                down = false;
+                up = false;
+
+                graphics.setColor(Color.white);
+                graphics.setFont(new Font("arial", Font.BOLD, 50));
+                graphics.drawString("Game Over", 325, 300 );
+
+                graphics.setFont(new Font("arial", Font.BOLD, 20));
+                graphics.drawString("Press Space to restart", 350, 340 );
+            }
+        }
+
         graphics.dispose();
     }
     //Mechanics of the game
@@ -210,6 +228,12 @@ public class GamePlay extends JPanel implements  ActionListener, KeyListener {
     @Override
     public void keyPressed(KeyEvent e) {
         switch(e.getKeyCode()){
+            case KeyEvent.VK_SPACE:
+                moving = 0;
+                Score = 0;
+                lengthOfSnake = 3;
+                repaint();
+                break;
             case KeyEvent.VK_RIGHT:
                 moving++;
                 right = true;
