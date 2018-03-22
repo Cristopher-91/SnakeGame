@@ -10,7 +10,7 @@ public class Main {
         JFrame jFrame = new JFrame();
         GamePlay gamePlay = new GamePlay();
 
-        jFrame.setBounds(500,200,900,700);
+        jFrame.setBounds(500,200,915,700);
         jFrame.setBackground(Color.DARK_GRAY);
         jFrame.setResizable(false);
         jFrame.setVisible(true);

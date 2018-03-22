@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
 
-public class GamePlay extends JPanel implements KeyListener, ActionListener {
+public class GamePlay extends JPanel implements  ActionListener, KeyListener {
 
     //Snake Configuration
     private int[] snakeXlength = new int[750];
@@ -32,6 +32,14 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
     private int delay = 100;
     private int moving = 0;
 
+    public int getMoving() {
+        return moving;
+    }
+
+    public void setMoving(int moving) {
+        this.moving = moving;
+    }
+
     //Gameplay panel configuration
 
     private ImageIcon titleImage;
@@ -44,27 +52,24 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
         timer = new Timer(delay, this);
         timer.start();
-
-
     }
-
     public void paint(Graphics graphics){
 
         //draw title image border
         graphics.setColor(Color.white);
-        graphics.drawRect(15,11,851,55);
+        graphics.drawRect(24,10,851,55);
 
         //draw the title image
         titleImage = new ImageIcon("Images/snaketitle.jpg");
-        titleImage.paintIcon(this, graphics, 16,12);
+        titleImage.paintIcon(this, graphics, 25,11);
 
         //draw gameplay border
         graphics.setColor(Color.white);
-        graphics.drawRect(15,74,851,575);
+        graphics.drawRect(24,74,851,576);
 
         //draw background for the gameplay
         graphics.setColor(Color.BLACK);
-        graphics.fillRect(16,75,850,574);
+        graphics.fillRect(25,75,850,575);
 
         //draw snake
         //initial position
@@ -89,7 +94,7 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
                 rightmouth.paintIcon(this, graphics, snakeXlength[i], snakeYlength[i] );
             }
             if(i==0 && left){
-                lefthmouth = new ImageIcon("Images/lefthmouth.png");
+                lefthmouth = new ImageIcon("Images/leftmouth.png");
                 lefthmouth.paintIcon(this, graphics, snakeXlength[i], snakeYlength[i] );
             }
             if(i==0 && up){
@@ -108,12 +113,80 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
             }
 
         }
-
+        graphics.dispose();
     }
-
+    //Mechanics of the game
     @Override
     public void actionPerformed(ActionEvent e) {
-
+        timer.start();
+        if(right){
+            for(int i = lengthOfSnake-1; i>=0; i--){
+                snakeYlength[i+1] = snakeYlength[i];
+            }
+            for(int i = lengthOfSnake; i>=0; i--){
+                if(i==0){
+                    snakeXlength[i] = snakeXlength[i] + 25;
+                }
+                else{
+                    snakeXlength[i] = snakeXlength[i-1];
+                }
+                if(snakeXlength[i] > 850){
+                    snakeXlength[i] = 25;
+                }
+            }
+        }
+        repaint();
+        if(left){
+            for(int i = lengthOfSnake-1; i>=0; i--){
+                snakeYlength[i+1] = snakeYlength[i];
+            }
+            for(int i = lengthOfSnake; i>=0; i--){
+                if(i==0){
+                    snakeXlength[i] = snakeXlength[i] - 25;
+                }
+                else{
+                    snakeXlength[i] = snakeXlength[i-1];
+                }
+                if(snakeXlength[i] < 25){
+                    snakeXlength[i] = 850;
+                }
+            }
+        }
+        repaint();
+        if(up){
+            for(int i = lengthOfSnake-1; i>=0; i--){
+                snakeXlength[i+1] = snakeXlength[i];
+            }
+            for(int i = lengthOfSnake; i>=0; i--){
+                if(i==0){
+                    snakeYlength[i] = snakeYlength[i] - 25;
+                }
+                else{
+                    snakeYlength[i] = snakeYlength[i-1];
+                }
+                if(snakeYlength[i] < 75){
+                    snakeYlength[i] = 625;
+                }
+            }
+        }
+        repaint();
+        if(down){
+            for(int i = lengthOfSnake-1; i>=0; i--){
+                snakeXlength[i+1] = snakeXlength[i];
+            }
+            for(int i = lengthOfSnake; i>=0; i--){
+                if(i==0){
+                    snakeYlength[i] = snakeYlength[i] + 25;
+                }
+                else{
+                    snakeYlength[i] = snakeYlength[i-1];
+                }
+                if(snakeYlength[i] > 625){
+                    snakeYlength[i] = 75;
+                }
+            }
+        }
+        repaint();
     }
 
     @Override
@@ -123,7 +196,61 @@ public class GamePlay extends JPanel implements KeyListener, ActionListener {
 
     @Override
     public void keyPressed(KeyEvent e) {
-
+        switch(e.getKeyCode()){
+            case KeyEvent.VK_RIGHT:
+                moving++;
+                right = true;
+                if(!left){
+                    right = true;
+                }
+                else{
+                    right = false;
+                    left = true;
+                }
+                up = false;
+                down = false;
+                break;
+            case KeyEvent.VK_LEFT:
+                System.out.println("left");
+                moving++;
+                left = true;
+                if(!right){
+                    left = true;
+                }
+                else{
+                    left = false;
+                    right = true;
+                }
+                up = false;
+                down = false;
+                break;
+            case KeyEvent.VK_UP:
+                moving++;
+                up = true;
+                if(!down){
+                    up = true;
+                }
+                else{
+                    up = false;
+                    down = true;
+                }
+                left = false;
+                right = false;
+                break;
+            case KeyEvent.VK_DOWN:
+                moving++;
+                down = true;
+                if(!up){
+                    down = true;
+                }
+                else{
+                    down = false;
+                    up = true;
+                }
+                left = false;
+                right = false;
+                break;
+        }
     }
 
     @Override
