@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b5cc1822-e7ec-46f9-8291-203d1e53e2f7" name="Default" comment="Finished drawing Snake">
-      <change beforePath="" afterPath="$PROJECT_DIR$/src/com/company/Enemy.java" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/com/company/GamePlay.java" afterPath="$PROJECT_DIR$/src/com/company/GamePlay.java" />
     </list>
@@ -48,8 +47,8 @@
       <file leaf-file-name="GamePlay.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/com/company/GamePlay.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="106" column="32" lean-forward="true" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+            <state relative-caret-position="2363">
+              <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#881#882#0" expanded="true" />
@@ -481,8 +480,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/com/company/GamePlay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="374">
-          <caret line="106" column="32" lean-forward="true" selection-start-line="106" selection-start-column="32" selection-end-line="106" selection-end-column="32" />
+        <state relative-caret-position="2363">
+          <caret line="139" column="52" lean-forward="false" selection-start-line="139" selection-start-column="52" selection-end-line="139" selection-end-column="52" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#881#882#0" expanded="true" />
